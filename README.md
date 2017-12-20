@@ -1,1 +1,2 @@
 # mini_bootloader
+自己实现了一个小型的bootloader，用于引导linux内核
