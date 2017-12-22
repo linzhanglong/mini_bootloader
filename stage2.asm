@@ -138,10 +138,16 @@ _SETUP_PARAM:
 	mov ebx, 0xe000
 	mov [eax], ebx
 
-	mov	si, cmd_line
-	mov	di, 0xe000
-	mov	cx, cmd_length
-	rep	movsb
+    mov ebx, 0xe000
+    mov edx, cmd_line
+_SET_CMDLINE:
+    mov al, [edx]
+    cmp al, 0x00
+    jz RUN_KERNEL
+    mov byte [ebx], al
+    inc ebx
+    inc edx
+    jmp _SET_CMDLINE
 
 RUN_KERNEL:
 	;开始启动内核
