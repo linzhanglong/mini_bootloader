@@ -60,6 +60,14 @@ etc         linuxrc     proc              sys         var
 
 
 
-说明：我们是通过nbd来写入qcow2磁盘数据，如果没有/dev/nbdx文件，那么需要安装nbd驱动。
+说明：
+
+1 . 我们是通过nbd来写入qcow2磁盘数据，如果没有/dev/nbdx文件，那么需要安装nbd驱动。
+
       #insmod drivers/block/nbd.ko max_part=16
+      
+
+2. 详细的代码分析，见 http://blog.csdn.net/linzhanglong/article/details/78629496
+      
+
 
