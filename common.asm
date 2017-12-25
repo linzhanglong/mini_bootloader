@@ -44,6 +44,6 @@ CMD_LINE_PTR equ 0x0228 ;32-bit pointer to the kernel command line
 VMLINUX_BIN_BASENAME equ 0x100000
 
 ;命令行设置
-cmd_line    db  'root=/dev/sda2', 0
+cmd_line    db  'console=ttyS0', 0
 cmd_length  equ $ - cmd_line
 
