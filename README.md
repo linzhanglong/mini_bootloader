@@ -1,7 +1,7 @@
 # mini_bootloader
 自己实现了一个小型的bootloader，用于引导linux内核
 
-step 1 配置和编译内核
+step 1 配置和编译内核 *******************
 
 下载一个linux内核，配置 linux内核，添加以下信息：initram文件系统（用于引导真正的文件系统）,PIIX控制器（qemu模拟的IDE控制器）驱动，ATA磁盘驱动，还有ext3文件系统驱动。
 
@@ -37,12 +37,12 @@ step 1 配置和编译内核
 
 
 
-step 2 解压磁盘文件系统
+step 2 解压磁盘文件系统 *******************
 
 tar xvf rootfs.tar.gz2 -C /home/
 
 
-step 3 最后编译我们bootloader，还有烧写程序，得到一个可以引导系统的磁盘
+step 3 最后编译我们bootloader，还有烧写程序，得到一个可以引导系统的磁盘 *******************
 
 把bzImage放到mini_bootloader目录下，执行 bah -x make_disk.sh，得到磁盘disk.qcow2
 
@@ -51,9 +51,12 @@ step 3 最后编译我们bootloader，还有烧写程序，得到一个可以引
 
 / # ls
 
-bin         home        lost+found  root        tmp
-dev         lib         mnt         sbin        usr
-etc         linuxrc     proc        sys         var
+bin         home        lost+found       root        tmp
+
+dev         lib         mnt              sbin        usr
+
+etc         linuxrc     proc              sys         var
+
 
 
 
