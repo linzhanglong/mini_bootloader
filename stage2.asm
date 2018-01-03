@@ -92,13 +92,6 @@ _LOAD_VMLINUX_NEXT:
 	dec ecx
 	jnz _LOAD_VMLINUX_NEXT
 
-	;debug
-	;mov eax, 0x100000
-	;add eax, 0x595100
-	;mov ebx, [eax]
-	;call print_hex_pm
-	;jmp $
-	;end debug
 _SETUP_PARAM:
 	;设置bootloader类型
 	mov eax, BZIMAGE_BOOTSECTOR_MEMBASE
@@ -106,13 +99,6 @@ _SETUP_PARAM:
 	mov ebx, [eax]
 	or ebx, 0xff;Boot loader identifier,我们是自己的bootloader，所以设置为0xff
 	mov [eax], ebx
-
-	;设置setup代码执行完之后调转到内核的地址，这里就是 0x100000
-	;bzImage的vmlinux.bin代码的加载内存地址
-	;mov eax, BZIMAGE_BOOTSECTOR_MEMBASE
-	;add eax, CODE32_START
-	;mov ebx, VMLINUX_BIN_BASENAME
-	;mov [eax], ebx
 
 	;启用CAN_USE_HEAP
 	mov eax, BZIMAGE_BOOTSECTOR_MEMBASE
@@ -182,8 +168,6 @@ _INIT_REAL_MODE:
 	mov sp, bp
 	jmp BZIMAGE_BOOTSECTOR_MEMBASE_SEG:512
 
-	;现在我们进入保护模式
-	;call enter_protect
 %include "common.asm"
 %include "common_protect_mode.asm"
 %include "common_real_mode.asm"
